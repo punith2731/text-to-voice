@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Chatbot: Text & PDF to Voice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- PDF.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Text & PDF to Voice Chatbot</h1>
+            <p>Type text or upload a PDF, then listen with different voices, speeds & pitch.</p>
+        </header>
+
+        <main class="app-main">
+            <section class="chat-section">
+                <div id="chat-window" class="chat-window">
+                    <!-- Messages will appear here -->
+                </div>
+
+                <div class="input-area">
+                    <textarea id="text-input" placeholder="Type your message or PDF text will appear here..."></textarea>
+                    <div class="input-actions">
+                        <button id="send-btn">Send & Speak</button>
+                        <button id="clear-chat-btn" class="secondary">Clear Chat</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="controls-section">
+                <div class="card">
+                    <h2>Voice Settings</h2>
+                    <label for="voice-select">Voice</label>
+                    <select id="voice-select">
+                        <option value="">Loading voices...</option>
+                    </select>
+                    <small class="hint">
+                        Available voices depend on your browser & OS. Choose a male/female style voice from the list.
+                    </small>
+
+                    <label for="rate-range">Speed: <span id="rate-value">1.0</span>x</label>
+                    <input type="range" id="rate-range" min="0.5" max="2" step="0.1" value="1" />
+
+                    <label for="pitch-range">Pitch: <span id="pitch-value">1.0</span></label>
+                    <input type="range" id="pitch-range" min="0" max="2" step="0.1" value="1" />
+
+                    <div class="tts-actions">
+                        <button id="stop-btn" class="secondary">Stop Voice</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>PDF to Voice</h2>
+                    <label class="file-label">
+                        <span>Select PDF file</span>
+                        <input type="file" id="pdf-input" accept="application/pdf" />
+                    </label>
+                    <p id="pdf-status" class="status-text">No PDF loaded.</p>
+                    <button id="speak-pdf-btn" disabled>Speak PDF Text</button>
+                </div>
+
+                <div class="card info-card">
+                    <h2>How it works</h2>
+                    <ol>
+                        <li>Type text or upload a PDF.</li>
+                        <li>Select voice, speed, and pitch.</li>
+                        <li>Click <strong>Send & Speak</strong> or <strong>Speak PDF Text</strong>.</li>
+                        <li>The browser will read the text aloud using its built-in speech engine.</li>
+                    </ol>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
